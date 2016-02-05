@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void analiz (char s[], int a)
+void analiz (string s, int a)
 {
     cout << s;
     if (a>=0)
@@ -13,7 +13,10 @@ void analiz (char s[], int a)
         cout << "even number." << endl;
     else
         cout << "odd number." << endl;
+
+    return;
 }
+
 
 int max (int a, int b, int c)
 {
