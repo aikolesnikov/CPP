@@ -14,25 +14,25 @@ using namespace std;
 
 int main()
 {
-    int a, b;
+    int a, b, c, N5;
     char op;
 
-    cout << "Input a, b and operator: ";
+    cout << "Input a, b and operator: " << endl;
     cin >> a >> b >> op;
-
-    cout << endl;
+    calc (a, b, op);
 
     analiz ("a - ", a);
     analiz ("b - ", b);
 
-    cout << endl;
-
-    calc (a, b, op);
-
-    cout << "Input : ";
+    cout << endl << "Input c: ";
     cin >> c;
-    cout << "Maximum from " << a << ", " << b << ", and " << c << " is " << max (a,b,c) << endl;
+    cout << "Maximum from " << a << ", " << b << ", and " << c << " is " << max (a,b,c) << endl << endl;
 
-    
+    max2();
+
+    cout << "Input N5: ";
+    cin >> N5;
+    splitN5(N5);
+
     return 0;
 }
