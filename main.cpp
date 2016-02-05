@@ -29,6 +29,10 @@ int main()
 
     calc (a, b, op);
 
+    cout << "Input : ";
+    cin >> c;
+    cout << "Maximum from " << a << ", " << b << ", and " << c << " is " << max (a,b,c) << endl;
 
+    
     return 0;
 }
