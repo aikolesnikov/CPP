@@ -14,3 +14,12 @@ void analiz (char s[], int a)
     else
         cout << "odd number." << endl;
 }
+
+int max (int a, int b, int c)
+{
+    int m;
+
+    (b>=a) ? ((b>=c) ? m=b : m=c) : ((c>=a) ? m=c : m=a);
+
+    return m;
+}
