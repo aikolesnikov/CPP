@@ -26,3 +26,23 @@ int max (int a, int b, int c)
 
     return m;
 }
+
+void max2 ()
+{
+    int m, x;
+
+    cin >> m;
+    while (true) {
+            cin >> x;
+            if (x==0)
+                break;
+            else {
+                if (x>m)
+                m=x;
+            };
+    }
+
+    cout << "MAX is " << m << endl;
+
+    return;
+}
