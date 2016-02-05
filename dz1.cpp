@@ -32,4 +32,8 @@ void calc (int a, int b, char op)
                 cout << op << " is wrong operator." << endl;
     }
 
+    cout << endl;
+
+    return;
+
 }
