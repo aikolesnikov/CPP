@@ -31,6 +31,7 @@ void max2 ()
 {
     int m, x;
 
+    cout << "Input number and finish with 0: ";
     cin >> m;
     while (true) {
             cin >> x;
@@ -42,7 +43,7 @@ void max2 ()
             };
     }
 
-    cout << "MAX is " << m << endl;
+    cout << "MAX is " << m << endl << endl;
 
     return;
 }
@@ -50,7 +51,7 @@ void max2 ()
 void splitN5(int N5)
 {
     cout << N5%10 << " " << N5%100/10 << " " << N5%1000/100 << " " << N5%10000/1000 << " " << N5%100000/10000 << endl;
-    cout << "Sum = " << (N5%10 + N5%100/10 + N5%1000/100 + N5%10000/1000 + N5%100000/10000 ) << endl;
+    cout << "Sum = " << (N5%10 + N5%100/10 + N5%1000/100 + N5%10000/1000 + N5%100000/10000 ) << endl << endl;
 
     return;
 }
