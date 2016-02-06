@@ -21,16 +21,16 @@ cin >> a >> b ; cout << endl;
 //    cout << endl;
 //}
 
-int bb=b; int k;
-for (int i=0; i<a; ++i){
-    for (int j=1; j<=bb; ++j){
-        if (j<bb)
-            cout << " ";
-        else
-            for (k=j-1; k<b; ++k)
-               cout << "*";
-    }
-    bb--;
+cin >> a >> b;
+
+int bb=b;
+
+for (int i=1; i<=a; ++i){
+    for (int j=1; j<=b-1; ++j)
+        cout << "1";
+    for (int j=b; j<=bb; ++j)
+        cout << "2";
+    b--;
     cout << endl;
 }
 
