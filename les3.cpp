@@ -7,7 +7,6 @@
 using namespace std;
 
 int Arrplay(){
-
     const int ArrN=4;
     int Arr[ArrN];
 //-------------------------------------------------
@@ -38,7 +37,27 @@ int Arrplay(){
             nx+=1;
         }
     }
-    cout << x << " found " << nx << " times";
+    cout << x << " found " << nx << " times" << endl << endl;
+//------------------------------------------------
+
+    int iMin=Arr[0];
+    int iMax=Arr[0];
+    int iMinPos=0;
+    int iMaxPos=0;
+
+    for (int i=1; i<ArrN; ++i){
+        if (Arr[i]<iMin){
+            iMin=Arr[i];
+            iMinPos=i;
+        }
+        else if (Arr[i]>iMax){
+            iMax=Arr[i];
+            iMaxPos=i;
+        }
+    }
+    cout << "Min = " << iMin << " on " << iMinPos+1 << " position." << endl;
+    cout << "Max = " << iMax << " on " << iMaxPos+1 << " position." << endl;
+
 //------------------------------------------------
 
 return 0;
