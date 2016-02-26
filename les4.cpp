@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <memory.h>
 #include <windows.h>
-#include "inpl4.h"
+#include "les4.h"
 
 using namespace std;
 
