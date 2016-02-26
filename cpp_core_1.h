@@ -10,7 +10,7 @@ using namespace std;
 void gotoxy(int x, int y);
 void DrawFigure(int width, int hight, int x, int y, char draw_char);
 int getTime(SYSTEMTIME st);
-int char_comp(char c1, char c2); 
+int char_comp(char c1, char c2);
 double power (double x, double y);
 
 void init_arr(int Ar[], int ArSize);
@@ -22,14 +22,24 @@ void sort_arr_down(int Arr[], int arr_size);
 void sort_arr_up2(int Arr[], int arr_size);
 void sort_arr_down2(int Arr[], int arr_size);
 
-void dz3_3(){ /* Заполнить массив следующим образом:  1,2,2,3,3,3,4,4,4,4,5,5,5,5,5,5,6,6,6… . Показать на консоль. */
-void dz3_2(){  
+void InverseTwoArrays(int Ar1[], int Ar2[], int ArSize);
+
+void dz3_3(); /* Заполнить массив следующим образом:  1,2,2,3,3,3,4,4,4,4,5,5,5,5,5,5,6,6,6… . Показать на консоль. */
+void dz3_2();
 /* 2. Найти в массиве Mах и  Min число. Вывести все числа, которые находятся между ними, так как в примере ( с отступом).
 Пример:
 3,  4, 5, 1, 7, 9, 6, 8, 4, 6, 9, 15,  13, 8, 5
              1, 7, 9, 6, 8, 4, 6, 9, 15 */
 
 
+//-----------------------------------------------------------------------------------------
+void InverseTwoArrays(int Ar1[], int Ar2[], int ArSize){
+    for (int i=0; i<ArSize; ++i){
+        int tmp = Ar2[ArSize-1-i];
+        Ar2[ArSize-1-i]=Ar1[i];
+        Ar1[i]=tmp;
+    }
+}
 //-----------------------------------------------------------------------------------------
 void sort_arr_down2(int Arr[], int arr_size){
 
@@ -150,7 +160,7 @@ return (st.wHour*3600 + st.wMinute*60 + st.wSecond)*1000 + st.wMilliseconds ;
 
 //-------- set cursor to the position x,y --------
 void gotoxy(int x, int y){
-    
+
     COORD coord;
     coord.X = x;
     coord.Y = y;
@@ -169,7 +179,7 @@ void DrawFigure(int width, int hight, int x, int y, char draw_char){
 
 
 // ------------------------------------------------------------------------------------------------------------------------
-void dz3_2(){  
+void dz3_2(){
 /* 2. Найти в массиве Mах и  Min число. Вывести все числа, которые находятся между ними, так как в примере ( с отступом).
 Пример:
 3,  4, 5, 1, 7, 9, 6, 8, 4, 6, 9, 15,  13, 8, 5
