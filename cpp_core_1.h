@@ -128,7 +128,13 @@ void init_arr(int Ar[], int ArSize){
         Ar[i]=rand()%20;
     }
 }
-
+/*
+void init_arr(int Ar[], int Rows, int Cols){
+    for (int i=0; i<Rows; ++i)
+        for (int j=0; j<Cols; ++j)
+            Ar[i][j]=rand()%20;
+}
+*/
 //------- x power y -------------------------------------------------
 double power (double x, double y){
     double res = x;
