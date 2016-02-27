@@ -1,123 +1,216 @@
 #include <iostream>
-#include <time.h>
-#include <stdlib.h>
-#include <memory.h>
-#include <windows.h>
-#include "cpp_core_1.h"
+#include "../includes/cpp_core_1.h"
+#include <iomanip>
 
 using namespace std;
 
-void swap_arr(int Ar1[], int Ar2[], int n);
-void sort_arr_up(int Ar[], int size);
-void sort_arr_down(int Ar[], int size);
-void sort_arr_up2(int Ar[], int size);
-void sort_arr_down2(int Ar[], int size);
-int getTime(SYSTEMTIME st);
+void show (int Val);
+void show (char Symb);
+void show (int Ar[], int ArSize);
+void rect (int x=3, int y=3, char ch='*');
+inline sum (int x, int y){return x+y;}
+
+const int Cols=3;
+void init_arr_2 (int Arr[][Cols], int Rows);
+void show_arr_2 (int Arr[][Cols], int Rows);
+
+void init_arr_ptr2 (int * pArr, int size){
+    for (int i=0; i<size; ++i){
+        pArr[i]=rand()%20;
+        cout << pArr[i] << " ";
+    }
+    cout << endl;
+}
 
 int main()
 {
     srand(time(0));
 
-    const int size1 = 10000;
-    int Ar1[size1], Ar2[size1];
-    init_arr(Ar1, size1);
+    int size1;
+    cin >> size1;
+    int * pArr1 = new int [size1];
+    init_arr_ptr2(pArr1,size1);
 
-    memcpy(Ar2,Ar1,sizeof(Ar1));
+    int size2;
+    cin >> size2;
+    int * pArr2 = new int [size2];
+    init_arr_ptr2(pArr2,size2);
 
-    SYSTEMTIME st1, st2, st3;
-    GetLocalTime(&st1);
-    sort_arr_up(Ar1,size1);
-    GetLocalTime(&st2);
-    sort_arr_up2(Ar2,size1);
-    GetLocalTime(&st3);
+    int size3;
+    size3 = size1 + size2;
+    int * pArr3 = new int [size3];
+    int i3=0;
+    for (int i=0; i<size1; ++i){
+        pArr3[i3]=pArr1[i];
+        cout << pArr3[i3++] << " ";
+    }
+    for (int i=0; i<size2; ++i){
+        pArr3[i3]=pArr2[i];
+        cout << pArr3[i3++] << " ";
+    }
 
-    cout << (getTime(st2) - getTime(st1)) - (getTime(st3) - getTime(st2)) << endl;
+    // memcpy (pArr3, pArr1, size1*sizeof(pArr1[0]);
+    // memcpy (pArr3+size1, pArr2, size2*sizeof(pArr2[0]));
 
+    delete[] pArr1;
+    delete[] pArr2;
+    delete[] pArr3;
 
-
-
-//    cout << "Array 1     : ";
-//    print_arr(Ar1,size1);
 
 /*
-    const int size1 = 10;
-    int Ar1[size1];
-    init_arr(Ar1, size1);
+    int *pVal = new int;
+    *pVal = 5;
+    cout << *pVal << endl;
+    delete pVal;
 
-    cout << "Array 1     : ";
-    print_arr(Ar1,size1);
+    int *pVal2 = new int (123);
+    cout << *pVal2 << endl;
+    delete pVal;
 
-    sort_arr_up2(Ar1, size1);
-    cout << "Array 1 up  : ";
-    print_arr(Ar1,size1);
+    int size;
+    cin >> size;
+    int * pArr = new int [size];
 
-    sort_arr_down2(Ar1, size1);
-    cout << "Array 1 down: ";
-    print_arr(Ar1,size1);
+    for (int i=0; i<size; ++i){
+        pArr[i]=rand()%20;
+        cout << pArr[i] << " ";
+    }
+
+    delete[] pArr;
+*/
+/*
+//    int* pB; int *pC;  int* pAA, pBB;  int* pAAA, *pBBB;
+
+    const int size = 10;
+    int Arr [size]={1,2,3};
+
+    cout << "Addr: " << Arr << endl;
+
+    for (int i=0; i<size; ++i){
+        cout << "i=" << i << " , adr=" << (Arr+i) << " , " << Arr[i] << " " << *(Arr+i) << endl;
+    }
+    int * pArr;
+    pArr = Arr;
+
+    cout << endl << pArr << " " << Arr << endl;
+
+    cout << endl << sizeof(Arr) << " " << sizeof(pArr);
 
 */
 
 /*
+    int a=100;
 
-    const int size1 = 10;
-    const int size2 = 10;
+    int * pA;
+    pA = &a;
 
-    int Ar1[size1];
-    init_arr(Ar1, size1);
-    cout << "Array 1 : ";
-    print_arr(Ar1,size1);
-    cout << sizeof(Ar1) << endl;
+    int ** ppA;
+    ppA = &pA;
 
-    int Ar2[size2];
-    init_arr(Ar2, size2);
-    cout << endl << "Array 2 : ";
-    print_arr(Ar2,size2);
-
-    cout << endl << "              Swap." << endl << endl;
-    swap_arr(Ar1, Ar2, size1);
-
-    cout << "Array 1 : ";
-    print_arr(Ar1,size1);
-    cout << endl << "Array 2 : ";
-    print_arr(Ar2,size2);
+    cout << a << " " << *pA << " " << **ppA << endl;
 
 */
 
-//    int Ar1[size1];
-//    init_arr(Ar1, size1);
-//    print_arr(Ar1,size1);
-//    cout << "Sum arr = " << sum_arr(Ar1, size1) << endl;
+/*
+    const int Rows=3;
+    int Arr[Rows][Cols];
+    init_arr_2(Arr, Rows);
+    show_arr_2(Arr, Rows);
 
-//   int Ar2[size2];
- //   init_arr(Ar2, size2);
- //   print_arr(Ar2,size2);
+    int Arr2[Rows][Cols];
+    int SumArr = 0;
+    for (int i=0; i<Rows; ++i){
+            for (int j=0; j<Cols; ++j){
+                SumArr+=Arr[i][j];
+            }
+    }
+    for (int i=0; i<Rows; ++i){
+        for (int j=0; j<Cols; ++j){
+            Arr2[i][j]=SumArr-Arr[i][j];
+        }
+    }
+    cout << endl;
+    cout << "SumAr=" << SumArr << endl << endl;
+    show_arr_2(Arr2, Rows);
 
+*/
+/*
+    const int Rows=3, Cols=3;
+    int Arr[Rows][Cols];
 
-    //double x, y;
-    //cin >> x >> y;
-    //cout << power (x,y) << endl;
+    for (int i=0; i<Rows; ++i)
+            for (int j=0; j<Cols; ++j)
+                Arr[i][j]=rand()%20;
 
-    //char c1, c2;
-    //cin >> c1 >> c2;
-    //cout << char_comp(c1, c2);
+    int SumArr = 0;
+    int SumD1 = 0;
+    int SumD2 = 0;
+    for (int i=0; i<Rows; ++i){
+            for (int j=0; j<Cols; ++j){
+                cout << setw(5) << Arr[i][j] << " ";
+                SumArr+=Arr[i][j];
+            }
+            SumD1+=Arr[i][i];
+            SumD2+=Arr[i][Cols-i-1];
+            cout << endl;
+    }
+    cout << "Sum=" << SumArr << endl;
+    cout << "SumD1=" << SumD1 << endl;
+    cout << "SumD2=" << SumD2 << endl;
 
-    // cout << sum(10,15);
+*/
 
-    // print_fig(5,7,'&');
-    // print_fig(20,10,'#');
-    // print_line(10, '*');
-    // menu1(555);
+// cout << sum(1,2);
+//    rect(); rect(5); rect(2,7); rect(3,7,'%');
 
-    // rand_array();
-
-    return 0;
+/*  show (5); show('a');
+    const int ArSize = 10; int Ar[ArSize]; show(Ar, ArSize); */
 }
 
-void swap_arr(int Ar1[], int Ar2[], int size){
-    int swap_i;
-    for (int i=0; i<size; ++i){
-        swap_i=Ar1[i]; // a = a+b ; b = a-b; a = a-b
-        Ar1[i]=Ar2[i];
-        Ar2[i]=swap_i;
+
+void init_arr_2 (int Arr[][Cols], int Rows){
+    for (int i=0; i<Rows; ++i)
+            for (int j=0; j<Cols; ++j)
+                Arr[i][j]=rand()%20;
+}
+
+void show_arr_2(int Arr[][Cols], int Rows){
+    for (int i=0; i<Rows; ++i){
+            for (int j=0; j<Cols; ++j)
+                cout << setw(5) << Arr[i][j];
+        cout << endl;
     }
+}
+
+void init_arr_ptr(int * pArr, int size){
+    pArr = new int [size];
+    for (int i=0; i<size; ++i){
+        pArr[i]=rand()%20;
+        cout << pArr[i] << " ";
+    }
+}
+
+void rect (int x, int y, char ch){
+
+    for (int i=0; i<y; ++i){
+        for (int j=0; j<x; ++j)
+            cout << ch;
+        cout << endl;
+    }
+}
+
+void show (int Val){
+    cout << Val << endl;
+}
+
+void show (char Symb){
+    cout << Symb << endl;
+}
+
+void show (int Ar [], int ArSize){
+    for (int i=0; i<ArSize; ++i){
+            cout << Ar[i] << " ";
+    }
+    cout << endl;
+
 }
