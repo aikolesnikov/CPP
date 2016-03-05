@@ -20,6 +20,33 @@ void myswap (int * a, int * b){
     *b = t;
 }
 
+int MyStrlen(const char * pStr){
+    int len = 0;
+
+    while (*pStr != '\0'){
+        len++;
+        pStr++;
+    }
+
+    return len;
+}
+
+int MyStrWords(const char * pStr){
+    int len = 0;
+    int words = 1;
+
+    while (*pStr != '\0'){
+        len++;
+        pStr++;
+
+        if (*pStr == ' ') words++;
+
+    }
+
+    return words;
+}
+
+
 int main()
 {
 
@@ -27,15 +54,23 @@ int main()
 
 // строки в стиле C
 
+/*
     char Arr[3] = {'A','B','C'};
     char str[3] = {'a','b','\0'};
     char str2[8] = "my text";
     char str3[] = "my text 2";
-
     cout << Arr << endl;
     cout << str << endl;
     cout << str2 << endl;
     cout << str3 << endl;
+*/
+    const int len = 100;
+    char str[len]="";
+    cout << "Enter line: ";
+    cin.getline(str, len);
+    cout << str << endl;
+    cout << MyStrlen(str) << endl;
+    cout << MyStrWords(str) << endl;
 
 /*
 // ------------------ ссылки
