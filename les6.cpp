@@ -42,7 +42,8 @@ int main()
     myswap (&a, &b);
     cout << a << " " << b << endl;
 
-
+    // int * Arr = new int [5];
+    // int*&pArr=Arr; void function (int*& Ar, int& s); 
 /*
     int Data1 = 10;
     init (Data);
