@@ -25,7 +25,20 @@ int main()
 
     srand(time(0));
 
-// ссылки
+// строки в стиле C
+
+    char Arr[3] = {'A','B','C'};
+    char str[3] = {'a','b','\0'};
+    char str2[8] = "my text";
+    char str3[] = "my text 2";
+
+    cout << Arr << endl;
+    cout << str << endl;
+    cout << str2 << endl;
+    cout << str3 << endl;
+
+/*
+// ------------------ ссылки
     // int Data = 10;
     // int& rData = Data;
     // rData +=5;
@@ -42,8 +55,10 @@ int main()
     myswap (&a, &b);
     cout << a << " " << b << endl;
 
+*/
+
     // int * Arr = new int [5];
-    // int*&pArr=Arr; void function (int*& Ar, int& s); 
+    // int*&pArr=Arr; void function (int*& Ar, int& s);
 /*
     int Data1 = 10;
     init (Data);
