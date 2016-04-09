@@ -45,8 +45,8 @@ int main(int argc, char** argv)
     //print("prc=")
 
     cout << endl << fSum(0,1,2,3,0) << endl;
-    cout << endl << fSum2(4,1,2,3,0) << endl;
-    cout << endl << fSum3(0,short(1),short(2),short(3),short(0)) << endl;
+    // cout << endl << fSum2(4,1,2,3,0) << endl;
+    // cout << endl << fSum3(0,short(1),short(2),short(3),short(0)) << endl;
 
 
     return 0;
