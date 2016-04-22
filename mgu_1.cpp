@@ -1,59 +1,77 @@
 #include <iostream>
 #include <typeinfo>
 #include <limits.h>
+#include <iomanip>
+#include <float.h>
+
+#define space "   "
 
 using namespace std;
 
 int main()
 {
 
-    char c; short s; int i; unsigned u; signed char sc;
-    float f; double d; long lng; unsigned short us; long double ld;
 
-    // 2.12. Определить тип выражений:
-    // #include <typeinfo>
-
-    // поиграться с типами - учебник
-    // bool	1	0   /   255
-    // char	1	0   /   255
-    // short int	2	-32 768    /    32 767
-    // unsigned short int	2	0  /  65 535
-    // int	4	-2 147 483 648   /   2 147 483 647
-    // unsigned int	4	0     /     4 294 967 295
-    // long int	4	-2 147 483 648    /    2 147 483 647
-    // unsigned long int	4	0     /     4 294 967 295
-    // float	4	-2 147 483 648.0  / 2 147 483 647.0
-    // long float	8	-9 223 372 036 854 775 808 .0   /   9 223 372 036 854 775 807.0
-    // double	8	-9 223 372 036 854 775 808 .0   /   9 223 372 036 854 775 807.0
-
-    // cout << sizeof(bool);
-    // cout << sizeof(char) << " " << CHAR_MIN << " " << CHAR_MAX << endl;
-
-    cout << sizeof(char) << " " << CHAR_MIN << " " << CHAR_MAX << endl << "фак йее" << endl;
-    cout << sizeof(signed char) << " " << SCHAR_MIN << " " << SCHAR_MAX << endl;
-    cout << sizeof(unsigned char) << " " << " " << UCHAR_MAX << endl;
-    cout << sizeof(short int) << " " << SHRT_MIN << " " << SHRT_MAX << endl;
-
-    // cout << sizeof(int) << " " << INT_MIN << " " << INT_MAX;
-
-    // cout << typeid(u).name(); // j
-    // cout << typeid(sc).name(); // a
-    // cout << typeid(us).name(); // t
-    // cout << typeid(ld).name(); // e
-
-    // cout << typeid(c-s/i).name() << endl; // int
-    // cout << typeid(u*3-3.0*u-i).name() << endl; // d
-    // cout << typeid(u-us*i).name() << endl;
-    // cout << ( sc + d ) * ld << endl;
-    // cout << (5 * lng - 'a' ) * ( s + u / 2 ) << endl;
-    // cout << ( f + 3 ) / ( 2.5f - s * 3.14 ) << endl;
-
-
-   // cout << "hello MGU"  << endl;
+   cout << "hello MGU"  << endl;
 
    return 0;
 }
 
+
+/*
+#define PRINT_TYPE(x) \
+if (typeid(x).name()==typeid(bool).name()) {cout << #x << " - " << "bool" << endl;} \
+if (typeid(x).name()==typeid(char).name()) {cout << #x << " - " << "char" << endl;} \
+if (typeid(x).name()==typeid(signed char).name()) {cout << #x << " - " << "signed char" << endl;} \
+if (typeid(x).name()==typeid(unsigned char).name()) {cout << #x << " - " << "unsigned char" << endl;} \
+if (typeid(x).name()==typeid(short int).name()) {cout << #x << " - " << "short int" << endl;} \
+if (typeid(x).name()==typeid(unsigned short int).name()) {cout << #x << " - " << "unsigned short int" << endl;} \
+if (typeid(x).name()==typeid(unsigned int).name()) {cout << #x << " - " << "unsigned int" << endl;} \
+if (typeid(x).name()==typeid(int).name()) {cout << #x << " - " << "integer" << endl;} \
+if (typeid(x).name()==typeid(long).name()) {cout << #x << " - " << "long" << endl;} \
+if (typeid(x).name()==typeid(unsigned long).name()) {cout << #x << " - " << "unsigned long" << endl;} \
+if (typeid(x).name()==typeid(long long).name()) {cout << #x << " - " << "long long" << endl;} \
+if (typeid(x).name()==typeid(float).name()) {cout << #x << " - " << "float" << endl;} \
+if (typeid(x).name()==typeid(double).name()) {cout << #x << " - " << "double" << endl;} \
+if (typeid(x).name()==typeid(long double).name()) {cout << #x << " - " << "long double" << endl;} \
+*/
+// #define PRINT_TYPE(x) cout << #x << " - " << typeid(x).name() << endl;
+
+/*
+    // 2.12. Определить тип выражений:    // #include <typeinfo>
+
+    cout << setw(20) << "bool" << space << sizeof(bool) << endl;
+    cout << setw(20) << "char" << space << sizeof(char) << space << CHAR_MIN << space << CHAR_MAX << endl;
+    cout << setw(20) << "signed char" << space << sizeof(signed char) << space << SCHAR_MIN << space << SCHAR_MAX << endl;
+    cout << setw(20) << "unsigned char" << space << sizeof(unsigned char) << space << UCHAR_MAX << endl;
+    cout << setw(20) << "short int" << space << sizeof(short int) << space << SHRT_MIN << space << SHRT_MAX << endl;
+    cout << setw(20) << "unsigned short int" << space << sizeof(unsigned short int) << space << USHRT_MAX << endl;
+    cout << setw(20) << "int" << space << sizeof(int) << space << INT_MIN << space << INT_MAX << endl;
+    cout << setw(20) << "unsigned int" << space << sizeof(unsigned int) << space << UINT_MAX << endl;
+    cout << setw(20) << "long" << space << sizeof(long) << space << LONG_MIN << space << LONG_MAX << endl;
+    cout << setw(20) << "unsigned long" << space << sizeof(unsigned long) << space << ULONG_MAX << endl;
+    cout << setw(20) << "long long" << space << sizeof(long long) << space << LLONG_MIN << space << LLONG_MAX << endl;
+    cout << setw(20) << "unsigned long long" << space << sizeof(unsigned long long) << space << ULLONG_MAX << endl;
+
+    int x=2000000000; cout << endl << x+x; // overflow
+
+    cout << endl << endl;
+    cout << setw(20) << "float" << space << sizeof(float) << space << FLT_MIN << space << FLT_MAX << endl ;
+    cout << setw(20) << "double" << space << sizeof(double) << space << DBL_MIN << space << DBL_MAX << endl ;
+    cout << setw(20) << "long double" << space << sizeof(long double) << space << LDBL_MIN << space << LDBL_MAX << endl ;
+    cout << endl << endl;
+
+    char c; short s; int i; unsigned u; signed char sc;
+    float f; double d; long lng; unsigned short us; long double ld;
+    // typeid(...).name();     PRINT_TYPE(long long);
+
+    PRINT_TYPE(c-s/i); // int
+    PRINT_TYPE(u*3-3.0*u-i); // double
+    PRINT_TYPE(u-us*i); // unsigned int
+    PRINT_TYPE((sc+d)*ld); // long double
+    PRINT_TYPE((5*lng-'a')*(s+u/2)); // long
+    PRINT_TYPE((f+3)/(2.5f-s*3.14)); // double
+*/
 
 /*
 2.11. Написать эквивалентное выражение, не содержащее операции !
