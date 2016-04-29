@@ -3,6 +3,7 @@
 #include <limits.h>
 #include <iomanip>
 #include <float.h>
+#include <stdio.h>
 
 #define space "   "
 
@@ -11,11 +12,143 @@ using namespace std;
 int main()
 {
 
+	double d; float f; long lng; int i; short s;
 
-   cout << "hello MGU"  << endl;
+	s = i = lng = f = d = 100/3.0;
+	printf("s = %hd i = %d lng = %ld f = %f d = %f\n", s, i, lng, f, d);
+
+    // d = 100/3.0; printf("d = %.30f",d);
+
+   // cout << "hello MGU"  << endl;
 
    return 0;
 }
+
+
+
+/*
+2.17. Целой переменной k присвоить значение, равное третьей от конца цифре в записи целого положительного числа x.
+*/
+
+
+/*
+2.16. Дано вещественное число x . Не пользуясь никакими операциями, кроме умножения, сложения и вычитания, вычислить
+2x4-3x3+4x2-5x+6 (степени).
+Разрешается использовать не более четырех умножений и четырех сложений и вычитаний.
+*/
+
+
+/*
+// 2.15. Что будет напечатано в результате выполнения следующего фрагмента программы?
+double d = 3.2, x; int i = 2, y;
+x = ( y = d / i ) * 2; printf ("x = %f ;y = %d\n", x, y);
+x = ( y = d / i ) * 2; printf ("x = %d ;y = %f\n", x, y);
+y = ( x = d / i ) * 2; printf ("x = %f ;y = %d\n", x, y);
+y = d * ( x = 2.5 / d); printf ("x = %f; y = %d\n", x, y);
+x = d * ( y = ( (int)2.9 + 1.1) / d; printf ("x = %d y = %f\n", x, y);
+*/
+
+/*
+    //2.14. Что будет напечатано в результате выполнения следующего фрагмента программы?
+	double d; float f; long lng; int i; short s;
+	s = i = lng = f = d = 100/3;
+	printf("s = %hd i = %d lng = %ld f = %f d = %f\n", s, i, lng, f, d);
+	d = f = lng = i = s =100/3;
+	printf("s = %hd i = %d lng = %ld f = %f d = %f\n", s, i, lng, f, d);
+	s = i = lng = f = d = 1000000/3;
+	printf("s = %hd i = %d lng = %ld f = %f d = %f\n", s, i, lng, f, d);
+	d = f = lng = i = s =1000000/3;
+	printf("s = %hd i = %d lng = %ld f = %f d = %f\n", s, i, lng, f, d);
+	lng = s = f = i = d =100/3;
+	printf("s = %hd i = %d lng = %ld f = %f d = %f\n", s, i, lng, f, d);
+	f = s = d = lng = i = (double)100/3;
+	printf("s = %hd i = %d lng = %ld f = %f d = %f\n", s, i, lng, f, d);
+	s = i = lng = f = d = 100/(double)3;
+	printf("s = %hd i = %d lng = %ld f = %f d = %f\n", s, i, lng, f, d);
+	f = s = d = lng = i = (double)100/3;
+	printf("s = %hd i = %d lng = %ld f = %f d = %f\n", s, i, lng, f, d);
+	i = s = lng = d = f = (double)(100/3);
+	printf("s = %hd i = %d lng = %ld f = %f d = %f\n", s, i, lng, f, d);
+*/
+
+
+/*
+// 2.13. Допустимо ли в Си? Если "да" - опишите семантику этих действий; если "нет" - объясните почему.
+int  i;
+i = (1 || 2) % (1 | 2 );
+printf ( "i = %d\n", i);
+
+
+int  a, b, m, n, z;
+m = n = 5;
+z = a = b = 0;
+z--, ( a = b ) = z + ( m != n );
+printf ("%d %d %d %d %d\n", a, b, m, n, z);
+
+
+int  i = 1;
+i = i << i | i;
+printf ( "i = %d\n", i);
+
+
+double  x = 1.9; int a;
+double  b = 3.7;
+a = b += (1 && 2 || 3) != (int)x;
+printf ("%f %d %f\n", x, a, b);
+
+
+int x;
+x = 5; ++ x =10;
+printf ("%d\n", x);
+
+
+int i, x, y;  x = 5; y = 10; i = 15;
+x = ( y = 0, i = 1);
+printf("%d %d %d\n", i, x ,y);
+( x = y == 0) , i=1;
+printf("%d %d %d\n", i, x, y);
+
+
+int x, y;
+x = 5; y = x && ++ x;
+printf("%d %d\n", x, y);
+
+
+int x = 2, y, z;
+x *= 3+2; x *= y = z = 4;
+printf ("%d %d %d\n", x, y, z);
+x = y == z; x == ( y = z );
+printf ("%d %d %d\n", x, y, z);
+
+
+int x = 2, y = 1, z = 0;
+y = x && y || z;
+z = x / ++x;
+printf(" %d %d %d\n", x, y, z);
+
+
+int x = 03, y = 02, z = 01;
+printf("%d\n", x | y & -z);
+printf("%d\n", x ^ y & -z);
+printf("%d\n", x & y && z);
+printf("%d\n", x<<3);
+
+
+int x, y, z;  x = y = z = 1;
+x += y += z;
+printf("%d\n", x < y ? y++ : x++);
+printf("%d\n", z+=x<y ? ++x : y--);
+printf("%d %d %d\n", x, y, z);
+printf("%d\n", z>=y && y>=x);
+
+
+int x, y, z, i;  x = y = z = 1;
+i = ++x || ++y && ++z;
+printf("%d%d%d%d\n", x,y,z,i);
+i = x++ <= --y || ++z >= i;
+printf("%d%d%d%d\n", x,y,z,i);
+
+*/
 
 
 /*
