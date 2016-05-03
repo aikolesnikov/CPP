@@ -12,14 +12,8 @@ using namespace std;
 int main()
 {
 
-	double d; float f; long lng; int i; short s;
 
-	s = i = lng = f = d = 100/3.0;
-	printf("s = %hd i = %d lng = %ld f = %f d = %f\n", s, i, lng, f, d);
-
-    // d = 100/3.0; printf("d = %.30f",d);
-
-   // cout << "hello MGU"  << endl;
+   cout << "hello MGU"  << endl;
 
    return 0;
 }
@@ -30,44 +24,40 @@ int main()
 2.17. Целой переменной k присвоить значение, равное третьей от конца цифре в записи целого положительного числа x.
 */
 
-
 /*
 2.16. Дано вещественное число x . Не пользуясь никакими операциями, кроме умножения, сложения и вычитания, вычислить
 2x4-3x3+4x2-5x+6 (степени).
 Разрешается использовать не более четырех умножений и четырех сложений и вычитаний.
-*/
 
+
+   double x=2;
+   cout << (((((2*x)-3)*x)+4)*x-5)*x+6; // 20
+*/
 
 /*
 // 2.15. Что будет напечатано в результате выполнения следующего фрагмента программы?
 double d = 3.2, x; int i = 2, y;
 x = ( y = d / i ) * 2; printf ("x = %f ;y = %d\n", x, y);
-x = ( y = d / i ) * 2; printf ("x = %d ;y = %f\n", x, y);
-y = ( x = d / i ) * 2; printf ("x = %f ;y = %d\n", x, y);
 y = d * ( x = 2.5 / d); printf ("x = %f; y = %d\n", x, y);
-x = d * ( y = ( (int)2.9 + 1.1) / d; printf ("x = %d y = %f\n", x, y);
+x = d * (y = ((int)2.9 + 1.1)/d); printf ("x = %d y = %f\n", x, y);
 */
+
 
 /*
     //2.14. Что будет напечатано в результате выполнения следующего фрагмента программы?
 	double d; float f; long lng; int i; short s;
+    // d = 100/3.0; printf("d = %.30f\n",d);
+
 	s = i = lng = f = d = 100/3;
-	printf("s = %hd i = %d lng = %ld f = %f d = %f\n", s, i, lng, f, d);
 	d = f = lng = i = s =100/3;
-	printf("s = %hd i = %d lng = %ld f = %f d = %f\n", s, i, lng, f, d);
 	s = i = lng = f = d = 1000000/3;
-	printf("s = %hd i = %d lng = %ld f = %f d = %f\n", s, i, lng, f, d);
 	d = f = lng = i = s =1000000/3;
-	printf("s = %hd i = %d lng = %ld f = %f d = %f\n", s, i, lng, f, d);
 	lng = s = f = i = d =100/3;
-	printf("s = %hd i = %d lng = %ld f = %f d = %f\n", s, i, lng, f, d);
 	f = s = d = lng = i = (double)100/3;
-	printf("s = %hd i = %d lng = %ld f = %f d = %f\n", s, i, lng, f, d);
 	s = i = lng = f = d = 100/(double)3;
-	printf("s = %hd i = %d lng = %ld f = %f d = %f\n", s, i, lng, f, d);
 	f = s = d = lng = i = (double)100/3;
-	printf("s = %hd i = %d lng = %ld f = %f d = %f\n", s, i, lng, f, d);
 	i = s = lng = d = f = (double)(100/3);
+
 	printf("s = %hd i = %d lng = %ld f = %f d = %f\n", s, i, lng, f, d);
 */
 
